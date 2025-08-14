@@ -3,10 +3,9 @@
 Erstelle basierend auf der mathematischen Formel für die DFT und iDFT zwei Python-Funktionen, um die DFT und iDFT eines gegebenen Signals 
 x zu berechnen.
 
-
-$$
+```math
 X[k] = \sum_{n=0}^{N-1} x[n] \cdot e^{-j \frac{2\pi}{N} kn}, \quad k = 0, 1, \dots, N-1
-$$
+```
 
 
 $$
@@ -40,9 +39,6 @@ def iDFT(X):
     
     return x
 
-
-    
-    return x
 # sampling rate
 fs = 100
 # sampling interval

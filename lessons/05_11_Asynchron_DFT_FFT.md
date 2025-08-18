@@ -1,3 +1,8 @@
+---
+layout: default
+title: Frequenzspektrum, DFT und FFT
+---
+
 # Frequenzspektrum, DFT und FFT
 
 Erstelle basierend auf der mathematischen Formel für die DFT und iDFT zwei Python-Funktionen, um die DFT und iDFT eines gegebenen Signals 

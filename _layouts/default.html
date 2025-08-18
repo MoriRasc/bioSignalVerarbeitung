@@ -1,1 +1,16 @@
-{% include mathjax.html %}
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | default: site.title | default: "Site" }}</title>
+    {% include mathjax.html %}
+  </head>
+  <body>
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+  </body>
+</html>

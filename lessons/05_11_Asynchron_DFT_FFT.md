@@ -3,11 +3,13 @@
 Erstelle basierend auf der mathematischen Formel für die DFT und iDFT zwei Python-Funktionen, um die DFT und iDFT eines gegebenen Signals 
 x zu berechnen.
 
-$$ X[k] = \sum_{n=0}^{N-1} x[n] \cdot e^{-j \frac{2\pi}{N} kn}, \quad k = 0, 1, \dots, N-1 $$
+\[ 
+X[k] = \sum_{n=0}^{N-1} x[n] \, e^{-j \tfrac{2\pi}{N}kn}, \quad k = 0, 1, \dots, N-1 
+\]
 
-```math
-x[n] = \frac{1}{N} \sum_{k=0}^{N-1} X[k] \cdot e^{j \frac{2\pi}{N} kn}, \quad n = 0, 1, \dots, N-1 
-```
+\[
+x[n] = \tfrac{1}{N} \sum_{k=0}^{N-1} X[k] \, e^{j \tfrac{2\pi}{N}kn}, \quad n = 0, 1, \dots, N-1
+\]
 
 
 **📝  Aufgabe 1: Verarbeitungszeit**

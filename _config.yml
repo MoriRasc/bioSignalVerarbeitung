@@ -1,4 +1,4 @@
 markdown: kramdown
-title: ''
-usemathjax: true
-  
+kramdown:
+  input: GFM
+  math_engine: mathjax

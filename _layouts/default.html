@@ -6,4 +6,11 @@
     <title>{{ page.title | default: site.title | default: "Site" }}</title>
     {% include mathjax.html %}
   </head>
+  <body>
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+  </body>
 </html>

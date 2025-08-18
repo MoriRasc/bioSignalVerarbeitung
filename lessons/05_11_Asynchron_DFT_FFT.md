@@ -7,6 +7,7 @@ $$ X[k] = \sum_{n=0}^{N-1} x[n] \cdot e^{-j \frac{2\pi}{N} kn}, \quad k = 0, 1, 
 
 $$ x[n] = \frac{1}{N} \sum_{k=0}^{N-1} X[k] \cdot e^{j \frac{2\pi}{N} kn}, \quad n = 0, 1, \dots, N-1 $$
 
+
 **📝  Aufgabe 1: Verarbeitungszeit**
 
 Für ein gegebenes Signal x: Stelle das Signal grafisch dar, berechne die Verarbeitungszeit für die selbst erstellte DFT-Funktion, die `numpy.fft()`-Funktion und die `scipy.fft()` -Funktion.

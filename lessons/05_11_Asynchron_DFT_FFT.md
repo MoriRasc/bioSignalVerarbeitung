@@ -1,4 +1,4 @@
-  usemathjax: true
+usemathjax: true
   
 # Frequenzspektrum, DFT und FFT
 

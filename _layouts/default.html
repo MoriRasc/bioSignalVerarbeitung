@@ -4,20 +4,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title | default: site.title | default: "Site" }}</title>
+    
     {% include mathjax.html %}
+
+    <!-- GitHub Markdown CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.7.0/github-markdown-light.min.css">
+
+    <!-- Noto Sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
+    <!-- Highlight.js for syntax highlighting -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
     <style>
+      body {
+        font-family: 'Noto Sans', sans-serif;
+      }
       pre code {
-      display: block;
-      overflow-x: auto;
-      padding: 1em;
-      border-radius: 6px;
+        display: block;
+        overflow-x: auto;
+        padding: 1em;
+        border-radius: 6px;
       }
     </style>
   </head>
   <body>
     <main class="page-content" aria-label="Content">
-      <div class="wrapper">
+      <div class="wrapper markdown-body">
         {{ content }}
       </div>
     </main>

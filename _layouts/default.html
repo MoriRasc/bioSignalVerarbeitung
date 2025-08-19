@@ -21,14 +21,42 @@
     <script>hljs.highlightAll();</script>
 
     <style>
+      /* General font */
       body {
         font-family: 'Noto Sans', sans-serif;
       }
-      pre code {
-        display: block;
-        overflow-x: auto;
-        padding: 1em;
-        border-radius: 6px;
+
+      /* Python syntax custom colors */
+      code.hljs {
+        font-family: 'Noto Sans Mono', monospace;
+        font-size: 0.95em;
+      }
+
+      /* Keywords: def, for, if, else */
+      .hljs-keyword {
+        color: #3c3ce7; /* dark blue */
+        font-weight: bold;
+      }
+
+      /* Function names */
+      .hljs-title.function_ {
+        color: #d7a03a; /* red */
+      }
+
+      /* Built-in functions like range, len */
+      .hljs-built_in {
+        color: #1f77d4; /* lighter blue */
+      }
+
+      /* Strings */
+      .hljs-string {
+        color: #d73a49; /* red */
+      }
+
+      /* Comments */
+      .hljs-comment {
+        color: #228b22; /* green */
+        font-style: italic;
       }
     </style>
   </head>

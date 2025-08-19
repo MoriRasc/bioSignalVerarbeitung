@@ -10,8 +10,8 @@ $x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k]$
 
 Hierbei ist:
 
-- \($\delta[n - k]$\): die verschobene diskrete Deltafunktion (auch **Einheitsimpuls** genannt),
-- \(x[k]\): der **Skalierungsfaktor** (das Gewicht) für jede Deltafunktion.
+- $\delta[n - k]$: die verschobene diskrete Deltafunktion (auch **Einheitsimpuls** genannt),
+- $x[k]$: der **Skalierungsfaktor** (das Gewicht) für jede Deltafunktion.
 
 
 LTI-Systeme sind wichtig weil sie mathematisch gut analysierbar sind. Die Systemantwort auf ein beliebiges Eingangssignal kann durch Faltung mit der Impulsantwort berechnet werden. Sie lassen sich mit Fourier- und Z-Transformationen analysieren.
@@ -38,7 +38,7 @@ Erstelle und zeichne eine Impulsantwort, die 4 diskrete Werte mit unterschiedlic
 
 ```python
 # Definiere das diskrete Signal mit 9 Werten unterschiedlicher Amplitude
-n2= list(range(4))  # Zeitindizes von 0 bis 8
+n2 = list(range(4))  # Zeitindizes von 0 bis 8
 h = 
 ```
 
@@ -52,7 +52,7 @@ $
 h[n] = F[\delta[n]]
 $
 
-Wenn wir nun dieses LTI-System auf ein Eingangssignal \(x[n]\) anwenden möchten (**Aufmerken** \(x[k]\) ist der Skalierungsfaktor für jede Deltafunktion.):
+Wenn wir nun dieses LTI-System auf ein Eingangssignal $x[n]$ anwenden möchten (**Aufmerken** $x[k]$ ist der Skalierungsfaktor für jede Deltafunktion.):
 
 $ y[n] = F[x[n]] = F[\sum_{k=-\infty}^{\infty} x[k] \cdot \delta[n - k]] $
 
@@ -85,11 +85,13 @@ $y[n] = x[n] * h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k] =  \sum_{k=0}^{M-1
 
 Formel erlaubt individuelle Berechnung von jedem Punkt des Ausgangssignals
 
-Index n: Welcher Punkt im Ausgangssignal
+- Index n: Welcher Punkt im Ausgangssignal
 
-Index k: Iterator durch die Impulsantwort
+- Index k: Iterator durch die Impulsantwort
 
-M - 1: Die Länge des Ausgangssignals. Die Länge einer Faltung entspricht der Summe der Längen des Eingangssignals und der Impulsantwort minus eins.
+- M - 1: Die Länge des Ausgangssignals. Die Länge einer Faltung entspricht der Summe der Längen des Eingangssignals und der Impulsantwort minus eins.
+
+Im Beispiel:
 
 Länge x[n] = 5
 

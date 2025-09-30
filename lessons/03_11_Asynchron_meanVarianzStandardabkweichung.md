@@ -36,7 +36,6 @@ Das folgende Signal ist gegeben:
 #In[1] Definition of Libraries and Variables
 import statistics
 import numpy as np
-import mysignals as sig
 from matplotlib import pyplot as plt
 from matplotlib import style
 from scipy.signal import find_peaks

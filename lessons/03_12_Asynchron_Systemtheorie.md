@@ -111,14 +111,18 @@ Einer Deltafunktion, welche durch ein System geführt wird. Die Impulsantwort is
 
 
 ```python
-t = np.linspace(-1, 1, 11)
-delta = np.zeros_like(t)
-delta[len(t)//2] = 1  # Impulse at center
+# Discrete time samples from -2 to 2
+t = np.arange(-4, 5)  # [-2, -1, 0, 1, 2]
 
+# Create discrete delta (impulse) function
+delta = np.zeros_like(t)
+delta[t == 0] = 1  # Impulse at n = 0
+
+# Plot
 plt.stem(t, delta)
-plt.title("Discrete Dirac Delta Funktion (Approx.)")
-plt.xlabel("t")
-plt.ylabel("δ(t)")
+plt.title("Discrete Dirac Delta Function δ[n]")
+plt.xlabel("n")
+plt.ylabel("δ[n]")
 plt.grid(True)
 plt.show()
 ```
@@ -130,9 +134,16 @@ Die Antwort eines Systems auf einen Delta-Eingang δ[n] definiert dessen Impulsa
 ```python
 # Simple system: y[n] = x[n] - 0.5 * x[n-1] - 0.2 * x[n-2] - 0.1 * x[n-3]
 def lti_system(x):
-    y = np.zeros_like(x)
-    for n in range(1, len(x)):
-        y[n] = x[n] - 0.5 * x[n-1] - 0.2 * x[n-2] - 0.1 * x[n-3]
+    y = np.zeros_like(x, dtype=float)
+    for n in range(len(x)):
+        if n >= 0:
+            y[n] += x[n]
+        if n >= 1:
+            y[n] += -0.5 * x[n-1]
+        if n >= 2:
+            y[n] += -0.2 * x[n-2]
+        if n >= 3:
+            y[n] += -0.1 * x[n-3]
     return y
 
 impulsantwort = lti_system(delta)

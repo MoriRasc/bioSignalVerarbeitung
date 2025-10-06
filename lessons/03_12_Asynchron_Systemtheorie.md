@@ -149,7 +149,7 @@ def lti_system(x):
 impulsantwort = lti_system(delta)
 
 plt.stem(t, impulsantwort)
-plt.title("Impulseantwort LTI System")
+plt.title("Impulsantwort LTI System")
 plt.xlabel("t")
 plt.ylabel("h[t]")
 plt.grid(True)

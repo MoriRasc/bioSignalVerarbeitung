@@ -112,14 +112,14 @@ Einer Deltafunktion, welche durch ein System geführt wird. Die Impulsantwort is
 
 ```python
 # Discrete time samples from -2 to 2
-t = np.arange(-4, 5)  # [-2, -1, 0, 1, 2]
+n = np.arange(-4, 5)  # [-2, -1, 0, 1, 2]
 
 # Create discrete delta (impulse) function
 delta = np.zeros_like(t)
-delta[t == 0] = 1  # Impulse at n = 0
+delta[n == 0] = 1  # Impulse at n = 0
 
 # Plot
-plt.stem(t, delta)
+plt.stem(n, delta)
 plt.title("Discrete Dirac Delta Function δ[n]")
 plt.xlabel("n")
 plt.ylabel("δ[n]")
@@ -148,10 +148,10 @@ def lti_system(x):
 
 impulsantwort = lti_system(delta)
 
-plt.stem(t, impulsantwort)
+plt.stem(n, impulsantwort)
 plt.title("Impulsantwort LTI System")
-plt.xlabel("t")
-plt.ylabel("h[t]")
+plt.xlabel("n")
+plt.ylabel("h[n]")
 plt.grid(True)
 plt.show()
 ```

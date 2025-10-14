@@ -75,7 +75,8 @@ plt.show()
 
 
 ```python
-#In[2] Find local maxima using the find_peaks function
+# In[2] 
+# Find local maxima using the find_peaks function
 
 
 

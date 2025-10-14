@@ -75,11 +75,11 @@ plt.show()
 
 
 ```python
-# In[2] Find local maxima using the find_peaks function
+#In[2] Find local maxima using the find_peaks function
 
 
 
-# Plot the signal
+#Plot the signal
 
 ```
 
@@ -112,15 +112,15 @@ Gesucht: Mittelwert, Varianz, Standardabweichung, Max, Min
 #Min
 
 
-# Find the index of the maximum value in y
+#Find the index of the maximum value in y
 
-# Find the index of the minimum value in y
-
-
-# Plot the signal
+#Find the index of the minimum value in y
 
 
-# Plotting the signal with the mean value line
+#Plot the signal
+
+
+#Plotting the signal with the mean value line
 
 ```
 

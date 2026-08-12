@@ -4,7 +4,7 @@ Um die Signalverarbeitung effizienter zu gestalten, muss die Abtastrate eines Si
 
 ## Interaktive DFT/FFT‑Demo
 
-Zur Veranschaulichung von DFT und FFT steht eine interaktive Streamlit‑App zur Verfügung: [Interaktive DFT/FFT‑App](https://biosv-dft-fft.streamlit.app/). Die Anwendung zeigt Zeitbereichssignale und ihre Frequenzspektren, erlaubt das Experimentieren mit Parametern (z. B. Fensterlänge, Abtastrate, Rauschanteil).
+Zur Veranschaulichung von DFT und FFT steht eine interaktive Streamlit‑App zur Verfügung: <a href="https://biosv-dft-fft.streamlit.app/" target="_blank" rel="noopener noreferrer">Interaktive DFT/FFT‑App</a>. Die Anwendung zeigt Zeitbereichssignale und ihre Frequenzspektren, erlaubt das Experimentieren mit Parametern (z. B. Fensterlänge, Abtastrate, Rauschanteil).
 
 Hinweis: Die Seite leitet derzeit zur Streamlit‑Anmeldeseite weiter — melden Sie sich an oder fordern Sie Zugriff an, falls die App nicht direkt sichtbar ist.
 

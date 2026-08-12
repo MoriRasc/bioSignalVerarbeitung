@@ -28,7 +28,20 @@ import numpy as np
 
 # Definiere das diskrete Signal mit 5 Werten unterschiedlicher Amplitude
 n1 = list(range(5))  # Zeitindizes von 0 bis 4
-x = 
+x = [0.3, -1, -1.2, 2, 1.4 ]  # Amplituden
+
+# Erstelle das Stem-Plot
+markerline, stemlines, baseline = plt.stem(n1, x)
+plt.setp(markerline, 'markerfacecolor', 'blue')
+plt.setp(stemlines, 'color', 'blue')
+
+# Diagrammbeschriftung auf Deutsch
+plt.title("Diskretes Eingangssignal x[n1]")
+plt.xlabel("n1 (Zeitindex)")
+plt.ylabel("Amplitude (v)")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
 ```
 
 **📝  Aufgabe 2: Impulsantwort**
@@ -37,9 +50,21 @@ Erstelle und zeichne eine Impulsantwort, die 4 diskrete Werte mit unterschiedlic
 
 
 ```python
-# Definiere das diskrete Signal mit 9 Werten unterschiedlicher Amplitude
-n2 = list(range(4))  # Zeitindizes von 0 bis 8
-h = 
+n2= list(range(4))  # Zeitindizes
+h = [1, -0.5, -0.2, - 0.1]  # Amplituden
+
+# Erstelle das Stem-Plot
+markerline, stemlines, baseline = plt.stem(n2, h)
+plt.setp(markerline, 'markerfacecolor', 'blue')
+plt.setp(stemlines, 'color', 'blue')
+
+# Diagrammbeschriftung auf Deutsch
+plt.title("Diskrete Impulsantwort h[n2]")
+plt.xlabel("n2 (Zeitindex)")
+plt.ylabel("Amplitude (v)")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
 ```
 
 ## Faltung
@@ -113,33 +138,33 @@ Eingangssignal-Perspektive:
 
 
 ```python
-#x = 
-#h = 
+#x = [0.3, -1, -1.2, 2, 1.4 ]
+#h = [1, -0.5, -0.2, -0.1]
 # Faltung der Signale
 n = len(x) + len(h) - 1  # Länge des Ergebnisses
 #initialize array for convolution result
 decomp = np.zeros((len(x), n))
 
 
-# x[0] = 
-#h[n-0] = 
-decomp[0] = 
+# x[0] = 0.3
+#h[n-0] = h[n] = 1 δ[n-0] - 0.5 δ[n-1] - 0.2 δ[n-2] - 0.1 δ[n-3]
+decomp[0] = [0.3 * 1, 0.3 * -0.5, 0.3 * -0.2 , 0.3 * -0.1, 0, 0, 0, 0]
 
-#x[1] = 
-#h[n-1] = 
-decomp[1] = 
+#x[1] = -1
+#h[n-1] = h[n-1] = 1 δ[n-1] - 0.5 δ[n-2] - 0.2 δ[n-3] - 0.1 δ[n-4]
+decomp[1] = [0, -1 * 1 , -1 * -0.5 , -1 * -0.2 , -1 * -0.1, 0, 0, 0]
 
-#x[2] = 
-#h[n-2] = 
-decomp[2] = 
+#x[2] = -1.2
+#h[n-2] = h[n-2] = 1 δ[n-2] - 0.5 δ[n-3] - 0.2 δ[n-4] - 0.1 δ[n-5]
+decomp[2] = [0, 0, -1.2 * 1 , -1.2 * -0.5 , -1.2 * -0.2 , -1.2 * -0.1, 0, 0]
 
-#x[3] = 
-#h[n-3] = 
-decomp[3] = 
+#x[3] = 2
+#h[n-3] = h[n-3] = 1 δ[n-3] - 0.5 δ[n-4] - 0.2 δ[n-5] - 0.1 δ[n-6]
+decomp[3] = [0, 0, 0, 2 * 1 , 2 * -0.5 , 2 * -0.2 , 2 * -0.1, 0]
 
-#x[4] = 
-#h[n-4] = 
-decomp[4] = 
+#x[4] = 1.4
+#h[n-4] = h[n-4] = 1 δ[n-4] - 0.5 δ[n-5] - 0.2 δ[n-6] - 0.1 δ[n-7]
+decomp[4] = [0, 0, 0, 0, 1.4 * 1 , 1.4 * -0.5 , 1.4 * -0.2 , 1.4 * -0.1]
 
 # Faltungsergebnis
 y_result = np.sum(decomp, axis=0)
@@ -177,34 +202,34 @@ Was passiert mit y[0], y[1], y[2], y[5], y[6] und y[7]? Welche Folgen könnte da
 
 
 ```python
-#x = 
-#h = 
+#x = [0.3, -1, -1.2, 2, 1.4 ]
+#h = [1, -0.5, -0.2, - 0.1]
 #Ausgangssignal
 y = np.zeros(n)
 
-#y[0] = 
-y[0] = 
+#y[0] = x[0]h[0]
+y[0] =  0.3 * 1
 
-#y[1] = 
-y[1] = 
+#y[1] = x[0]h[1] + x[1]h[0]
+y[1] = 0.3 * - 0.5 + -1 * 1
 
-#y[2] = 
-y[2] = 
+#y[2] = x[0]h[2] + x[1]h[1] + x[2]h[0]
+y[2] = 0.3 * -0.2 + -1 * -0.5 + -1.2 * 1
 
-#y[3] = 
-y[3] = 
+#y[3] = x[0]h[3] + x[1]h[2] + x[2]h[1] + x[3]h[0]
+y[3] = 0.3 * -0.1 + -1 * -0.2 + -1.2 * -0.5 + 2 * 1
 
-#y[4] = 
-y[4] = 
+#y[4] = x[1]h[3] + x[2]h[2] + x[3]h[1] + x[4]h[0]
+y[4] = -1 * -0.1 + -1.2 * -0.2 + 2 * -0.5 + 1.4 * 1
 
-#y[5] = 
-y[5] = 
+#y[5] = x[2]h[3] + x[3]h[2] + x[4]h[1]
+y[5] = -1.2 * -0.1 + 2 * -0.2 + 1.4 * -0.5
 
-#y[6] = 
-y[6] = 
+#y[6] = x[3]h[3] + x[4]h[2]
+y[6] = -1.2 * 0 + 2 * -0.1 + 1.4 * -0.2
 
-#y[7] = 
-y[7] = 
+#y[7] = x[4]h[3]
+y[7] = 1.4 * -0.1
 
 print("Faltungsergebnis y[n]:", y)
 

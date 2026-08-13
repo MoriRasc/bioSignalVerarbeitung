@@ -81,10 +81,10 @@ x1 = np.random.rand(100)
 x2 = np.random.rand(100)
 a, b = 2, -1
 
-lhs = 
-rhs = 
+lhs = system(a*x1 + b*x2)
+rhs = a*system(x1) + b*system(x2)
 
-print("Linear?", )
+print("Linear?", np.allclose(lhs, rhs))
 ```
 
 **📝  Aufgabe 2: Test auf Zeitinvarianz**
@@ -162,10 +162,6 @@ plt.show()
 
 Verwenden Sie die Faltung, um den Systemausgang für einen bekannten Eingang und eine Impulsantwort zu berechnen.
 
-
-```python
-# Calculate the system response using convolution
-```
 
 **📝 Aufgabe 5:**
 Verändern Sie die Eingangsform oder die Impulsantwort. Wie wirkt sich das auf den Ausgang aus?

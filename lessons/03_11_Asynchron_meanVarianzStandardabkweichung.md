@@ -75,12 +75,25 @@ plt.show()
 
 
 ```python
-# In[2] 
-# Find local maxima using the find_peaks function
+# In[2] Find local maxima using the find_peaks function
+peaks_max, _ = find_peaks(signal)
+# Find local minima by finding peaks of the inverted signal
+peaks_min, _ = find_peaks(-signal)
 
 
+# Plot the signal
+plt.style.use('default')
+plt.figure(figsize=(12, 5))
+plt.plot(t, signal, label="Signal", color='orange')
+plt.plot(t[peaks_max], signal[peaks_max], 'ro', label="Local Maxima")
+plt.plot(t[peaks_min], signal[peaks_min], 'bo', label="Local Minima")
 
-#Plot the signal
+plt.title("Signal mit lokalen Maxima und Minima")
+plt.xlabel("Zeit (s)")
+plt.ylabel("Spannung (V)")
+plt.legend()
+plt.grid(True)
+plt.show()
 
 ```
 
@@ -99,122 +112,63 @@ Gesucht: Mittelwert, Varianz, Standardabweichung, Max, Min
 ```python
 #In[3]
 #Mittelwert
-
+mittelwert = statistics.mean(signal)
+print("Der Mittelwert ist:", mittelwert)
+mittelwert_alt = sum(signal) / len(signal)
+print("Der Mittelwert alt ist:", mittelwert_alt)
 
 #Varianz
-
+varianz = statistics.variance(signal) 
+abweichungen = [pow((x1 - mittelwert), 2) for x1 in signal]
+varianz_alt = sum(abweichungen) / (len(signal) - 1)  
+print("Die Varianz ist:", varianz) 
+print("Die Varianz_alt ist:", varianz_alt) 
 
 #Standardabweichung
-
+std = statistics.stdev(signal) 
+print("Die Standardabweichung ist:", std)
 
 #Max
-
+max_val = max(signal)
+print("Das Maximum ist:", max_val)
 
 #Min
+min_val = min(signal)
+print("Das Minimum ist:", min_val)
+
+# Find the index of the maximum value in y
+max_index = np.argmax(signal)
+max_time = t[max_index]
+# Find the index of the minimum value in y
+min_index = np.argmin(signal)
+min_time = t[min_index]
 
 
-#Find the index of the maximum value in y
+print("Der Index des Maximums ist:", max_index)
+print("Der Index des Minimums ist:", min_index)
 
-#Find the index of the minimum value in y
-
-
-#Plot the signal
-
-
-#Plotting the signal with the mean value line
-
-```
-
-Die folgende ideales Rechtecksignal ist gegeben:
-- Amplitude: 1
-- Offset: 0.5
-- Periode: 0.2 s
-- Duty cycle: 20%
-
-Was ist der Unterschied zwischen einem idealen und einem realen Rechtecksignal? Was bedeutet das im Frequenzbereich?
-
-
-```python
-#In[4]
-# Create an ideal square signal of amplitude 1 and offset 0.5
-# with a period of 0.2 seconds and a duty cycle of 20%
-
-
-# Time vector
-t = np.linspace(0, 1, 1000)  # 1 second total duration, 1000 samples
-
-# Signal parameters
-amplitude = 1
-offset = 0.5
-period = 0.2
-duty_cycle = 0.5  # percent
-
-# Generate ideal square wave with specified duty cycle
-raw_square = square(2 * np.pi * t / period, duty=duty_cycle)
-
-# Scale to amplitude and offset
-ideal_signal = (raw_square + 1) / 2 * amplitude + offset
-
-# Plot the square signal
+# Plot the signal
 plt.figure(figsize=(10, 4))
-plt.plot(t, ideal_signal, label="Rechtecksignal")
+plt.plot(t, signal, label="Signal")
+plt.plot(max_time, max_val, 'ro', label=f"Max = {max_val:.2f}")
+plt.annotate(f"Max = {max_val:.2f}", xy=(max_time, max_val),
+             xytext=(max_time + 0.5, max_val),
+             arrowprops=dict(facecolor='red', shrink=0.05),
+             fontsize=10, color='red')
+plt.plot(min_time, min_val, 'bo', label=f"Min = {min_val:.2f}")
+plt.annotate(f"Min = {min_val:.2f}", xy=(min_time, min_val),
+             xytext=(min_time + 0.5, min_val),
+             arrowprops=dict(facecolor='blue', shrink=0.05),
+             fontsize=10, color='blue')
+plt.title("Zufälliges Signal mit hervorgehobenem Maximal- und Minimalwert")
 plt.xlabel("Zeit (s)")
 plt.ylabel("Spannung (V)")
-plt.title("Ideales Rechtecksignal")
 plt.grid(True)
-plt.legend()
+
+
+# Plotting the signal with the mean value line
+plt.plot(t,signal)
+plt.suptitle('Signalerzeugung')
+plt.axhline(mittelwert, color='red', linestyle='--', label='Mittelwert')
 plt.show()
-```
-
-**📝 Aufgabe 3:** 
-
-Erzeuge und plotte ein nichtideales Rechtecksignal basierend auf die gegebenen Parametern.
-
-
-```python
-#In[5]
-# Create a non ideal square signal of amplitude 1 and offset 0.5
-# with a period of 0.2 seconds and a duty cycle of 20%
-
-
-# Time vector
-t = np.linspace(0, 1, 1000)  # 1 second total duration, 1000 samples
-
-# Signal parameters
-amplitude = 1
-offset = 0.5
-period = 0.2
-duty_cycle = 0.5  # percent
-
-# Generate ideal square wave with specified duty cycle
-raw_square = square(2 * np.pi * t / period, duty=duty_cycle)
-
-# Scale to amplitude and offset
-ideal_signal = (raw_square + 1) / 2 * amplitude + offset
-
-# Add non-ideal behavior: smooth the transitions
-non_ideal_signal = 
-
-# Plot the square signal
-plt.figure(figsize=(10, 4))
-plt.plot(t, non_ideal_signal, label="Rechtecksignal")
-plt.xlabel("Zeit (s)")
-plt.ylabel("Spannung (V)")
-plt.title("Nichtideales Rechtecksignal")
-plt.grid(True)
-plt.legend()
-plt.show()
-```
-
-**📝 Aufgabe 4:** 
-
-Berechnen Sie die Anstiegs- und Abfallzeiten.
-
-
-```python
-#In[5] Calculate the rise and fall times
-
-
-print("Anstiegszeiten / s:", rise_time)
-print("Abfallzeiten / s:", rise_time)
 ```
